@@ -26,11 +26,22 @@
       </main>
     </div>
   </div>
-  <footer class="p-4 flex">
-    <a href="https://github.com/adammansson">
-      <div class="h-16 w-16 bg-contain bg-center bg-no-repeat"
-        style="background-image: url({{url_for('static', filename='github-mark.svg')}});"></div>
-    </a>
+  <footer class="p-4 flex justify-around items-center">
+    <div class="w-1/2">
+      <p>
+        Inspired by <a href="https://www.friend.com/">friend.com</a>
+      </p>
+    </div>
+    <div class="w-1/2 flex justify-evenly">
+      <a href="https://github.com/adammansson">
+        <div class="h-16 w-16 bg-contain bg-center bg-no-repeat"
+          style="background-image: url({{url_for('static', filename='github-mark.png')}});"></div>
+      </a>
+      <a href="https://www.linkedin.com/in/adam-m%C3%A5nsson-663b1912b/">
+        <div class="h-16 w-16 bg-contain bg-center bg-no-repeat"
+          style="background-image: url({{url_for('static', filename='LI-In-Bug.png')}});"></div>
+      </a>
+    </div>
   </footer>
 </body>
 
