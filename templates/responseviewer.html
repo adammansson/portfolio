@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<div id="responseviewer" class="bg-orange-500">
+
+  {% if text %}
+  <div class="flex justify-between px-8 py-2">
+    <div class="flex gap-x-4">
+      <button class="">Body</button>
+      <button class="">Cookies</button>
+      <button class="">Headers</button>
+    </div>
+    <div class="flex gap-x-4">
+      <div>{{ status }}</div>
+      <div>{{ elapsed }}</div>
+      <div>{{ size }}</div>
+    </div>
+  </div>
+  <div id="responsecontent" class="flex">
+    <pre>{{ text }}</pre>
+  </div>
+  {% else %}
+  <p>No response</p>
+  {% endif %}
+
+</div>

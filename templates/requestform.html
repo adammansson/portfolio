@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<form hx-post="/requestform" hx-target="#responseviewer" hx-swap="outerHTML"
+  class="flex m-2 p-4 outline outline-2 rounded-md">
+
+  <select name="method" id="method" class="flex-none">
+    <option value="get">GET</option>
+    <option value="post">POST</option>
+  </select>
+
+  <div class="flex grow">
+    <input type="text" name="domain" id="domain" required placeholder="google.com"
+      class="grow p-2 outline outline-1 rounded-md">
+
+    <input type="submit" value="Send" class="p-2 outline outline-1 rounded-md bg-white hover:bg-slate-200">
+  </div>
+
+</form>

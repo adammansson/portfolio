@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/htmx.org@2.0.1"
+    integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>adammansson</title>
+</head>
+
+<body>
+  <div id="content">
+    <div class="h-screen p-4">
+      <main class="h-full bg-cover bg-center bg-no-repeat rounded-xl"
+        style="background-image: url({{url_for('static', filename='geranimo-_NM6bXPqaCE-unsplash.jpg')}});">
+        <header class="p-8">
+          <a href="{{url_for('index')}}">
+            <h1 class="text-center text-white text-6xl font-mono">
+              Adam Månsson
+            </h1>
+          </a>
+        </header>
+      </main>
+    </div>
+  </div>
+  <footer class="p-4 flex">
+    <a href="https://github.com/adammansson">
+      <div class="h-16 w-16 bg-contain bg-center bg-no-repeat"
+        style="background-image: url({{url_for('static', filename='github-mark.svg')}});"></div>
+    </a>
+  </footer>
+</body>
+
+</html>
