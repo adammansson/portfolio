@@ -16,16 +16,20 @@ import org.typelevel.log4cats.slf4j.Slf4jLogger
 import services.RepoService
 import tags.*
 
+val config: AppConfig = Config.load()
+
 implicit val logger: Logger[IO] = Slf4jLogger.getLogger[IO]
+
 val clientResource: Resource[IO, Client[IO]] =
   EmberClientBuilder
     .default[IO]
     .build
+
 val xa: Transactor[IO] = Transactor.fromDriverManager[IO](
-  driver = "org.postgresql.Driver",
-  url = "jdbc:postgresql:my_project",
-  user = "adam",
-  password = "adam",
+  driver = config.db.driver,
+  url = config.db.url,
+  user = config.db.user,
+  password = config.db.password,
   logHandler = Some(le => logger.info(le.sql))
 )
 
@@ -40,10 +44,13 @@ def portfolioService(): HttpRoutes[IO] = HttpRoutes.of[IO] {
 }
 
 def serverResource(httpApp: HttpApp[IO]): Resource[IO, Server] =
+  val host = Ipv4Address.fromString(config.http.host).getOrElse(ipv4"0.0.0.0")
+  val port = Port.fromString(config.http.port).getOrElse(port"8080")
+  
   EmberServerBuilder
     .default[IO]
-    .withHost(ipv4"0.0.0.0")
-    .withPort(port"8080")
+    .withHost(host)
+    .withPort(port)
     .withHttpApp(httpApp)
     .build
 

@@ -24,5 +24,6 @@ lazy val root = project
       "org.tpolecat" %% "doobie-postgres" % "1.0.0-RC4",
       "org.scalameta" %% "munit" % "1.0.0" % Test,
       "org.typelevel" %% "munit-cats-effect" % "2.0.0" % Test,
+      "com.github.pureconfig" %% "pureconfig-generic-scala3" % "0.17.7",
     )
   )
